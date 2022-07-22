@@ -1,0 +1,1067 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZSH plugin cheatsheet</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="zsh-plugin-cheatsheet">ZSH plugin cheatsheet</h1>
+<p>These are the plugins I most often use, and of which commands I apparently am bad at remembering  :)<br>
+For configuration of these plugins, I use oh-my-zsh.</p>
+<h2 id="aliases">aliases</h2>
+<p>With lots of 3rd-party amazing aliases installed, this plugin helps list the shortcuts<br>
+that are currently available based on the plugins you have enabled.</p>
+<p>To use it, add <code>aliases</code> to the plugins array in your zshrc file:</p>
+<pre class=" language-zsh"><code class="prism  language-zsh">plugins=(aliases)
+</code></pre>
+<p>Requirements: Python needs to be installed.</p>
+<h2 id="usage">Usage</h2>
+<ul>
+<li>
+<p><code>acs</code>: show all aliases by group.</p>
+</li>
+<li>
+<p><code>acs &lt;keyword&gt;</code>: filter aliases by <code>&lt;keyword&gt;</code> and highlight.</p>
+<p><img src="https://cloud.githubusercontent.com/assets/3602957/11581913/cb54fb8a-9a82-11e5-846b-5a67f67ad9ad.png" alt="screenshot"></p>
+</li>
+</ul>
+<h1 id="git-plugin">git plugin</h1>
+<p>The git plugin provides many <a href="#aliases">aliases</a> and a few useful <a href="#functions">functions</a>.</p>
+<p>To use it, add <code>git</code> to the plugins array in your zshrc file:</p>
+<pre class=" language-zsh"><code class="prism  language-zsh">plugins=(... git)
+</code></pre>
+<h2 id="aliases-1">Aliases</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Alias</th>
+<th align="left">Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">g</td>
+<td align="left">git</td>
+</tr>
+<tr>
+<td align="left">ga</td>
+<td align="left">git add</td>
+</tr>
+<tr>
+<td align="left">gaa</td>
+<td align="left">git add --all</td>
+</tr>
+<tr>
+<td align="left">gapa</td>
+<td align="left">git add --patch</td>
+</tr>
+<tr>
+<td align="left">gau</td>
+<td align="left">git add --update</td>
+</tr>
+<tr>
+<td align="left">gav</td>
+<td align="left">git add --verbose</td>
+</tr>
+<tr>
+<td align="left">gap</td>
+<td align="left">git apply</td>
+</tr>
+<tr>
+<td align="left">gapt</td>
+<td align="left">git apply --3way</td>
+</tr>
+<tr>
+<td align="left">gb</td>
+<td align="left">git branch</td>
+</tr>
+<tr>
+<td align="left">gba</td>
+<td align="left">git branch -a</td>
+</tr>
+<tr>
+<td align="left">gbd</td>
+<td align="left">git branch -d</td>
+</tr>
+<tr>
+<td align="left">gbda</td>
+<td align="left">git branch --no-color --merged | grep -vE “^([+<em>]|\s</em>(<span><span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mi mathvariant="normal">/</mi><mi>s</mi><mi>p</mi><mi>a</mi><mi>n</mi><mo>&gt;</mo><mo stretchy="false">(</mo><mi>g</mi><mi>i</mi><msub><mi>t</mi><mi>m</mi></msub><mi>a</mi><mi>i</mi><msub><mi>n</mi><mi>b</mi></msub><mi>r</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>h</mi><mo stretchy="false">)</mo><mi mathvariant="normal">∥</mi><mo>&lt;</mo><mi>s</mi><mi>p</mi><mi>a</mi><mi>n</mi><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;/span&gt;(git_main_branch)\|&lt;span&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.5782em; vertical-align: -0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord">/</span><span class="mord mathnormal">s</span><span class="mord mathnormal">p</span><span class="mord mathnormal">an</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">(</span><span style="margin-right: 0.03588em;" class="mord mathnormal">g</span><span class="mord mathnormal">i</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.151392em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mord mathnormal">ai</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.336108em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span style="margin-right: 0.02778em;" class="mord mathnormal">r</span><span class="mord mathnormal">an</span><span class="mord mathnormal">c</span><span class="mord mathnormal">h</span><span class="mclose">)</span><span class="mord">∥</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.73354em; vertical-align: -0.19444em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">p</span><span class="mord mathnormal">an</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">&gt;</span></span></span></span></span></span>(git_develop_branch))\s*<span>$</span>)” | xargs git branch -d 2&gt;/dev/null</td>
+</tr>
+<tr>
+<td align="left">gbD</td>
+<td align="left">git branch -D</td>
+</tr>
+<tr>
+<td align="left">gbl</td>
+<td align="left">git blame -b -w</td>
+</tr>
+<tr>
+<td align="left">gbnm</td>
+<td align="left">git branch --no-merged</td>
+</tr>
+<tr>
+<td align="left">gbr</td>
+<td align="left">git branch --remote</td>
+</tr>
+<tr>
+<td align="left">gbs</td>
+<td align="left">git bisect</td>
+</tr>
+<tr>
+<td align="left">gbsb</td>
+<td align="left">git bisect bad</td>
+</tr>
+<tr>
+<td align="left">gbsg</td>
+<td align="left">git bisect good</td>
+</tr>
+<tr>
+<td align="left">gbsr</td>
+<td align="left">git bisect reset</td>
+</tr>
+<tr>
+<td align="left">gbss</td>
+<td align="left">git bisect start</td>
+</tr>
+<tr>
+<td align="left">gc</td>
+<td align="left">git commit -v</td>
+</tr>
+<tr>
+<td align="left">gc!</td>
+<td align="left">git commit -v --amend</td>
+</tr>
+<tr>
+<td align="left">gcn!</td>
+<td align="left">git commit -v --no-edit --amend</td>
+</tr>
+<tr>
+<td align="left">gca</td>
+<td align="left">git commit -v -a</td>
+</tr>
+<tr>
+<td align="left">gca!</td>
+<td align="left">git commit -v -a --amend</td>
+</tr>
+<tr>
+<td align="left">gcan!</td>
+<td align="left">git commit -v -a --no-edit --amend</td>
+</tr>
+<tr>
+<td align="left">gcans!</td>
+<td align="left">git commit -v -a -s --no-edit --amend</td>
+</tr>
+<tr>
+<td align="left">gcam</td>
+<td align="left">git commit -a -m</td>
+</tr>
+<tr>
+<td align="left">gcas</td>
+<td align="left">git commit -a -s</td>
+</tr>
+<tr>
+<td align="left">gcasm</td>
+<td align="left">git commit -a -s -m</td>
+</tr>
+<tr>
+<td align="left">gcsm</td>
+<td align="left">git commit -s -m</td>
+</tr>
+<tr>
+<td align="left">gcb</td>
+<td align="left">git checkout -b</td>
+</tr>
+<tr>
+<td align="left">gcf</td>
+<td align="left">git config --list</td>
+</tr>
+<tr>
+<td align="left">gcl</td>
+<td align="left">git clone --recurse-submodules</td>
+</tr>
+<tr>
+<td align="left">gccd</td>
+<td align="left">git clone --recurse-submodules “<span><span class="katex--inline">KaTeX parse error: Expected 'EOF', got '&amp;' at position 11: &lt;/span&gt;@" &amp;̲&amp; cd "&lt;span&gt;</span></span>(basename <span>$</span>_ .git)”</td>
+</tr>
+<tr>
+<td align="left">gclean</td>
+<td align="left">git clean -id</td>
+</tr>
+<tr>
+<td align="left">gpristine</td>
+<td align="left">git reset --hard &amp;&amp; git clean -dffx</td>
+</tr>
+<tr>
+<td align="left">gcm</td>
+<td align="left">git checkout $(git_main_branch)</td>
+</tr>
+<tr>
+<td align="left">gcd</td>
+<td align="left">git checkout $(git_develop_branch)</td>
+</tr>
+<tr>
+<td align="left">gcmsg</td>
+<td align="left">git commit -m</td>
+</tr>
+<tr>
+<td align="left">gco</td>
+<td align="left">git checkout</td>
+</tr>
+<tr>
+<td align="left">gcor</td>
+<td align="left">git checkout --recurse-submodules</td>
+</tr>
+<tr>
+<td align="left">gcount</td>
+<td align="left">git shortlog -sn</td>
+</tr>
+<tr>
+<td align="left">gcp</td>
+<td align="left">git cherry-pick</td>
+</tr>
+<tr>
+<td align="left">gcpa</td>
+<td align="left">git cherry-pick --abort</td>
+</tr>
+<tr>
+<td align="left">gcpc</td>
+<td align="left">git cherry-pick --continue</td>
+</tr>
+<tr>
+<td align="left">gcs</td>
+<td align="left">git commit -S</td>
+</tr>
+<tr>
+<td align="left">gd</td>
+<td align="left">git diff</td>
+</tr>
+<tr>
+<td align="left">gdca</td>
+<td align="left">git diff --cached</td>
+</tr>
+<tr>
+<td align="left">gdcw</td>
+<td align="left">git diff --cached --word-diff</td>
+</tr>
+<tr>
+<td align="left">gdct</td>
+<td align="left">git describe --tags $(git rev-list --tags --max-count=1)</td>
+</tr>
+<tr>
+<td align="left">gds</td>
+<td align="left">git diff --staged</td>
+</tr>
+<tr>
+<td align="left">gdt</td>
+<td align="left">git diff-tree --no-commit-id --name-only -r</td>
+</tr>
+<tr>
+<td align="left">gdnolock</td>
+<td align="left">git diff $@ “:(exclude)package-lock.json” “:(exclude)*.lock”</td>
+</tr>
+<tr>
+<td align="left">gdup</td>
+<td align="left">git diff @{upstream}</td>
+</tr>
+<tr>
+<td align="left">gdv</td>
+<td align="left">git diff -w $@ | view -</td>
+</tr>
+<tr>
+<td align="left">gdw</td>
+<td align="left">git diff --word-diff</td>
+</tr>
+<tr>
+<td align="left">gf</td>
+<td align="left">git fetch</td>
+</tr>
+<tr>
+<td align="left">gfa</td>
+<td align="left">git fetch --all --prune</td>
+</tr>
+<tr>
+<td align="left">gfg</td>
+<td align="left">git ls-files | grep</td>
+</tr>
+<tr>
+<td align="left">gfo</td>
+<td align="left">git fetch origin</td>
+</tr>
+<tr>
+<td align="left">gg</td>
+<td align="left">git gui citool</td>
+</tr>
+<tr>
+<td align="left">gga</td>
+<td align="left">git gui citool --amend</td>
+</tr>
+<tr>
+<td align="left">ggf</td>
+<td align="left">git push --force origin $(current_branch)</td>
+</tr>
+<tr>
+<td align="left">ggfl</td>
+<td align="left">git push --force-with-lease origin $(current_branch)</td>
+</tr>
+<tr>
+<td align="left">ggl</td>
+<td align="left">git pull origin $(current_branch)</td>
+</tr>
+<tr>
+<td align="left">ggp</td>
+<td align="left">git push origin $(current_branch)</td>
+</tr>
+<tr>
+<td align="left">ggpnp</td>
+<td align="left">ggl &amp;&amp; ggp</td>
+</tr>
+<tr>
+<td align="left">ggpull</td>
+<td align="left">git pull origin “$(git_current_branch)”</td>
+</tr>
+<tr>
+<td align="left">ggpur</td>
+<td align="left">ggu</td>
+</tr>
+<tr>
+<td align="left">ggpush</td>
+<td align="left">git push origin “$(git_current_branch)”</td>
+</tr>
+<tr>
+<td align="left">ggsup</td>
+<td align="left">git branch --set-upstream-to=origin/$(git_current_branch)</td>
+</tr>
+<tr>
+<td align="left">ggu</td>
+<td align="left">git pull --rebase origin $(current_branch)</td>
+</tr>
+<tr>
+<td align="left">gpsup</td>
+<td align="left">git push --set-upstream origin $(git_current_branch)</td>
+</tr>
+<tr>
+<td align="left">ghh</td>
+<td align="left">git help</td>
+</tr>
+<tr>
+<td align="left">gignore</td>
+<td align="left">git update-index --assume-unchanged</td>
+</tr>
+<tr>
+<td align="left">git-svn-dcommit-push</td>
+<td align="left">git svn dcommit &amp;&amp; git push github $(git_main_branch):svntrunk</td>
+</tr>
+<tr>
+<td align="left">gk</td>
+<td align="left">gitk --all --branches &amp;!</td>
+</tr>
+<tr>
+<td align="left">gke</td>
+<td align="left">gitk --all $(git log -g --pretty=%h) &amp;!</td>
+</tr>
+<tr>
+<td align="left">gl</td>
+<td align="left">git pull</td>
+</tr>
+<tr>
+<td align="left">glg</td>
+<td align="left">git log --stat</td>
+</tr>
+<tr>
+<td align="left">glgp</td>
+<td align="left">git log --stat -p</td>
+</tr>
+<tr>
+<td align="left">glgg</td>
+<td align="left">git log --graph</td>
+</tr>
+<tr>
+<td align="left">glgga</td>
+<td align="left">git log --graph --decorate --all</td>
+</tr>
+<tr>
+<td align="left">glgm</td>
+<td align="left">git log --graph --max-count=10</td>
+</tr>
+<tr>
+<td align="left">glo</td>
+<td align="left">git log --oneline --decorate</td>
+</tr>
+<tr>
+<td align="left">glol</td>
+<td align="left">git log --graph --pretty=’%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)&lt;%an&gt;%Creset’</td>
+</tr>
+<tr>
+<td align="left">glols</td>
+<td align="left">git log --graph --pretty=’%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)&lt;%an&gt;%Creset’ --stat</td>
+</tr>
+<tr>
+<td align="left">glod</td>
+<td align="left">git log --graph --pretty=’%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)&lt;%an&gt;%Creset’</td>
+</tr>
+<tr>
+<td align="left">glods</td>
+<td align="left">git log --graph --pretty=’%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)&lt;%an&gt;%Creset’ --date=short</td>
+</tr>
+<tr>
+<td align="left">glola</td>
+<td align="left">git log --graph --pretty=’%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)&lt;%an&gt;%Creset’ --all</td>
+</tr>
+<tr>
+<td align="left">glog</td>
+<td align="left">git log --oneline --decorate --graph</td>
+</tr>
+<tr>
+<td align="left">gloga</td>
+<td align="left">git log --oneline --decorate --graph --all</td>
+</tr>
+<tr>
+<td align="left">glp</td>
+<td align="left">git log --pretty=&lt;format&gt;</td>
+</tr>
+<tr>
+<td align="left">gm</td>
+<td align="left">git merge</td>
+</tr>
+<tr>
+<td align="left">gmom</td>
+<td align="left">git merge origin/$(git_main_branch)</td>
+</tr>
+<tr>
+<td align="left">gmtl</td>
+<td align="left">git mergetool --no-prompt</td>
+</tr>
+<tr>
+<td align="left">gmtlvim</td>
+<td align="left">git mergetool --no-prompt --tool=vimdiff</td>
+</tr>
+<tr>
+<td align="left">gmum</td>
+<td align="left">git merge upstream/$(git_main_branch)</td>
+</tr>
+<tr>
+<td align="left">gma</td>
+<td align="left">git merge --abort</td>
+</tr>
+<tr>
+<td align="left">gp</td>
+<td align="left">git push</td>
+</tr>
+<tr>
+<td align="left">gpd</td>
+<td align="left">git push --dry-run</td>
+</tr>
+<tr>
+<td align="left">gpf</td>
+<td align="left">git push --force-with-lease</td>
+</tr>
+<tr>
+<td align="left">gpf!</td>
+<td align="left">git push --force</td>
+</tr>
+<tr>
+<td align="left">gpoat</td>
+<td align="left">git push origin --all &amp;&amp; git push origin --tags</td>
+</tr>
+<tr>
+<td align="left">gpr</td>
+<td align="left">git pull --rebase</td>
+</tr>
+<tr>
+<td align="left">gpu</td>
+<td align="left">git push upstream</td>
+</tr>
+<tr>
+<td align="left">gpv</td>
+<td align="left">git push -v</td>
+</tr>
+<tr>
+<td align="left">gr</td>
+<td align="left">git remote</td>
+</tr>
+<tr>
+<td align="left">gra</td>
+<td align="left">git remote add</td>
+</tr>
+<tr>
+<td align="left">grb</td>
+<td align="left">git rebase</td>
+</tr>
+<tr>
+<td align="left">grba</td>
+<td align="left">git rebase --abort</td>
+</tr>
+<tr>
+<td align="left">grbc</td>
+<td align="left">git rebase --continue</td>
+</tr>
+<tr>
+<td align="left">grbd</td>
+<td align="left">git rebase $(git_develop_branch)</td>
+</tr>
+<tr>
+<td align="left">grbi</td>
+<td align="left">git rebase -i</td>
+</tr>
+<tr>
+<td align="left">grbm</td>
+<td align="left">git rebase $(git_main_branch)</td>
+</tr>
+<tr>
+<td align="left">grbom</td>
+<td align="left">git rebase origin/$(git_main_branch)</td>
+</tr>
+<tr>
+<td align="left">grbo</td>
+<td align="left">git rebase --onto</td>
+</tr>
+<tr>
+<td align="left">grbs</td>
+<td align="left">git rebase --skip</td>
+</tr>
+<tr>
+<td align="left">grev</td>
+<td align="left">git revert</td>
+</tr>
+<tr>
+<td align="left">grh</td>
+<td align="left">git reset</td>
+</tr>
+<tr>
+<td align="left">grhh</td>
+<td align="left">git reset --hard</td>
+</tr>
+<tr>
+<td align="left">groh</td>
+<td align="left">git reset origin/$(git_current_branch) --hard</td>
+</tr>
+<tr>
+<td align="left">grm</td>
+<td align="left">git rm</td>
+</tr>
+<tr>
+<td align="left">grmc</td>
+<td align="left">git rm --cached</td>
+</tr>
+<tr>
+<td align="left">grmv</td>
+<td align="left">git remote rename</td>
+</tr>
+<tr>
+<td align="left">grrm</td>
+<td align="left">git remote remove</td>
+</tr>
+<tr>
+<td align="left">grs</td>
+<td align="left">git restore</td>
+</tr>
+<tr>
+<td align="left">grset</td>
+<td align="left">git remote set-url</td>
+</tr>
+<tr>
+<td align="left">grss</td>
+<td align="left">git restore --source</td>
+</tr>
+<tr>
+<td align="left">grst</td>
+<td align="left">git restore --staged</td>
+</tr>
+<tr>
+<td align="left">grt</td>
+<td align="left">cd “$(git rev-parse --show-toplevel || echo .)”</td>
+</tr>
+<tr>
+<td align="left">gru</td>
+<td align="left">git reset –</td>
+</tr>
+<tr>
+<td align="left">grup</td>
+<td align="left">git remote update</td>
+</tr>
+<tr>
+<td align="left">grv</td>
+<td align="left">git remote -v</td>
+</tr>
+<tr>
+<td align="left">gsb</td>
+<td align="left">git status -sb</td>
+</tr>
+<tr>
+<td align="left">gsd</td>
+<td align="left">git svn dcommit</td>
+</tr>
+<tr>
+<td align="left">gsh</td>
+<td align="left">git show</td>
+</tr>
+<tr>
+<td align="left">gsi</td>
+<td align="left">git submodule init</td>
+</tr>
+<tr>
+<td align="left">gsps</td>
+<td align="left">git show --pretty=short --show-signature</td>
+</tr>
+<tr>
+<td align="left">gsr</td>
+<td align="left">git svn rebase</td>
+</tr>
+<tr>
+<td align="left">gss</td>
+<td align="left">git status -s</td>
+</tr>
+<tr>
+<td align="left">gst</td>
+<td align="left">git status</td>
+</tr>
+<tr>
+<td align="left">gsta</td>
+<td align="left">git stash push</td>
+</tr>
+<tr>
+<td align="left">gsta</td>
+<td align="left">git stash save</td>
+</tr>
+<tr>
+<td align="left">gstaa</td>
+<td align="left">git stash apply</td>
+</tr>
+<tr>
+<td align="left">gstc</td>
+<td align="left">git stash clear</td>
+</tr>
+<tr>
+<td align="left">gstd</td>
+<td align="left">git stash drop</td>
+</tr>
+<tr>
+<td align="left">gstl</td>
+<td align="left">git stash list</td>
+</tr>
+<tr>
+<td align="left">gstp</td>
+<td align="left">git stash pop</td>
+</tr>
+<tr>
+<td align="left">gsts</td>
+<td align="left">git stash show --text</td>
+</tr>
+<tr>
+<td align="left">gstu</td>
+<td align="left">git stash --include-untracked</td>
+</tr>
+<tr>
+<td align="left">gstall</td>
+<td align="left">git stash --all</td>
+</tr>
+<tr>
+<td align="left">gsu</td>
+<td align="left">git submodule update</td>
+</tr>
+<tr>
+<td align="left">gsw</td>
+<td align="left">git switch</td>
+</tr>
+<tr>
+<td align="left">gswc</td>
+<td align="left">git switch -c</td>
+</tr>
+<tr>
+<td align="left">gswm</td>
+<td align="left">git switch $(git_main_branch)</td>
+</tr>
+<tr>
+<td align="left">gswd</td>
+<td align="left">git switch $(git_develop_branch)</td>
+</tr>
+<tr>
+<td align="left">gts</td>
+<td align="left">git tag -s</td>
+</tr>
+<tr>
+<td align="left">gtv</td>
+<td align="left">git tag | sort -V</td>
+</tr>
+<tr>
+<td align="left">gtl</td>
+<td align="left">gtl(){ git tag --sort=-v:refname -n -l ${1}* }; noglob gtl</td>
+</tr>
+<tr>
+<td align="left">gunignore</td>
+<td align="left">git update-index --no-assume-unchanged</td>
+</tr>
+<tr>
+<td align="left">gunwip</td>
+<td align="left">git log -n 1 | grep -q -c “--wip--” &amp;&amp; git reset HEAD~1</td>
+</tr>
+<tr>
+<td align="left">gup</td>
+<td align="left">git pull --rebase</td>
+</tr>
+<tr>
+<td align="left">gupv</td>
+<td align="left">git pull --rebase -v</td>
+</tr>
+<tr>
+<td align="left">gupa</td>
+<td align="left">git pull --rebase --autostash</td>
+</tr>
+<tr>
+<td align="left">gupav</td>
+<td align="left">git pull --rebase --autostash -v</td>
+</tr>
+<tr>
+<td align="left">gupom</td>
+<td align="left">git pull --rebase origin $(git_main_branch)</td>
+</tr>
+<tr>
+<td align="left">gupomi</td>
+<td align="left">git pull --rebase=interactive origin $(git_main_branch)</td>
+</tr>
+<tr>
+<td align="left">glum</td>
+<td align="left">git pull upstream $(git_main_branch)</td>
+</tr>
+<tr>
+<td align="left">gwch</td>
+<td align="left">git whatchanged -p --abbrev-commit --pretty=medium</td>
+</tr>
+<tr>
+<td align="left">gwip</td>
+<td align="left">git add -A; git rm $(git ls-files --deleted) 2&gt; /dev/null; git commit --no-verify --no-gpg-sign -m “–wip-- [skip ci]”</td>
+</tr>
+<tr>
+<td align="left">gam</td>
+<td align="left">git am</td>
+</tr>
+<tr>
+<td align="left">gamc</td>
+<td align="left">git am --continue</td>
+</tr>
+<tr>
+<td align="left">gams</td>
+<td align="left">git am --skip</td>
+</tr>
+<tr>
+<td align="left">gama</td>
+<td align="left">git am --abort</td>
+</tr>
+<tr>
+<td align="left">gamscp</td>
+<td align="left">git am --show-current-patch</td>
+</tr>
+</tbody>
+</table><h3 id="main-branch-preference">Main branch preference</h3>
+<p>Following the recent push for removing racially-charged words from our technical vocabulary, the git plugin favors using<br>
+a branch name other than <code>master</code>. In this case, we favor the shorter, neutral and descriptive term <code>main</code>. This means<br>
+that any aliases and functions that previously used <code>master</code>, will use <code>main</code> if that branch exists. We do this via the<br>
+function <code>git_main_branch</code>.</p>
+<h3 id="deprecated-aliases">Deprecated aliases</h3>
+<p>These are aliases that have been removed, renamed, or otherwise modified in a way that may, or may not, receive further support.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Alias</th>
+<th align="left">Command</th>
+<th align="left">Modification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">gap</td>
+<td align="left"><code>git add --patch</code></td>
+<td align="left">new alias <code>gapa</code></td>
+</tr>
+<tr>
+<td align="left">gcl</td>
+<td align="left"><code>git config --list</code></td>
+<td align="left">new alias <code>gcf</code></td>
+</tr>
+<tr>
+<td align="left">gdc</td>
+<td align="left"><code>git diff --cached</code></td>
+<td align="left">new alias <code>gdca</code></td>
+</tr>
+<tr>
+<td align="left">gdt</td>
+<td align="left"><code>git difftool</code></td>
+<td align="left">no replacement</td>
+</tr>
+<tr>
+<td align="left">ggpull</td>
+<td align="left"><code>git pull origin $(current_branch)</code></td>
+<td align="left">new alias <code>ggl</code> (<code>ggpull</code> still exists for now though)</td>
+</tr>
+<tr>
+<td align="left">ggpur</td>
+<td align="left"><code>git pull --rebase origin $(current_branch)</code></td>
+<td align="left">new alias <code>ggu</code> (<code>ggpur</code> still exists for now though)</td>
+</tr>
+<tr>
+<td align="left">ggpush</td>
+<td align="left"><code>git push origin $(current_branch)</code></td>
+<td align="left">new alias <code>ggp</code> (<code>ggpush</code> still exists for now though)</td>
+</tr>
+<tr>
+<td align="left">gk</td>
+<td align="left"><code>gitk --all --branches</code></td>
+<td align="left">now aliased to <code>gitk --all --branches</code></td>
+</tr>
+<tr>
+<td align="left">glg</td>
+<td align="left"><code>git log --stat --max-count = 10</code></td>
+<td align="left">now aliased to <code>git log --stat --color</code></td>
+</tr>
+<tr>
+<td align="left">glgg</td>
+<td align="left"><code>git log --graph --max-count = 10</code></td>
+<td align="left">now aliased to <code>git log --graph --color</code></td>
+</tr>
+<tr>
+<td align="left">gwc</td>
+<td align="left"><code>git whatchanged -p --abbrev-commit --pretty = medium</code></td>
+<td align="left">new alias <code>gwch</code></td>
+</tr>
+</tbody>
+</table><h3 id="functions">Functions</h3>
+<h4 id="current">Current</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">Command</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>grename &lt;old&gt; &lt;new&gt;</code></td>
+<td align="left">Rename <code>old</code> branch to <code>new</code>, including in origin remote</td>
+</tr>
+<tr>
+<td align="left">current_branch</td>
+<td align="left">Return the name of the current branch</td>
+</tr>
+<tr>
+<td align="left">git_current_user_name</td>
+<td align="left">Returns the <code>user.name</code> config value</td>
+</tr>
+<tr>
+<td align="left">git_current_user_email</td>
+<td align="left">Returns the <code>user.email</code> config value</td>
+</tr>
+<tr>
+<td align="left">git_main_branch</td>
+<td align="left">Returns the name of the main branch: <code>main</code> if it exists, <code>master</code> otherwise</td>
+</tr>
+<tr>
+<td align="left">git_develop_branch</td>
+<td align="left">Returns the name of the develop branch: <code>dev</code>, <code>devel</code>, <code>development</code> if they exist, <code>develop</code> otherwise</td>
+</tr>
+</tbody>
+</table><h2 id="history-plugin">history plugin</h2>
+<p>Provides a couple of convenient aliases for using the <code>history</code> command to examine your command line history.</p>
+<p>To use it, add <code>history</code> to the plugins array in your zshrc file:</p>
+<pre class=" language-zsh"><code class="prism  language-zsh">plugins=(... history)
+</code></pre>
+<h3 id="aliases-2">Aliases</h3>
+
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>h</code></td>
+<td><code>history</code></td>
+<td>Prints your command history</td>
+</tr>
+<tr>
+<td><code>hs</code></td>
+<td><code>history \| grep</code></td>
+<td>Use grep to search your command history</td>
+</tr>
+<tr>
+<td><code>hsi</code></td>
+<td><code>history \| grep -i</code></td>
+<td>Use grep to do a case-insensitive search of your command history</td>
+</tr>
+</tbody>
+</table><h2 id="the-fuck">The Fuck</h2>
+<p>The fuck is a magnificent app, inspired by a <a href="https://twitter.com/liamosaur/">@liamosaur</a><br>
+<a href="https://twitter.com/liamosaur/status/506975850596536320">tweet</a>, that corrects errors in previous console commands.</p>
+<p><img src="https://raw.githubusercontent.com/nvbn/thefuck/master/example.gif" alt="enter image description here"></p>
+<h2 id="sudo">sudo</h2>
+<p>Easily prefix your current or previous commands with <code>sudo</code> by pressing <kbd>esc</kbd> twice.</p>
+<p>To use it, add <code>sudo</code> to the plugins array in your zshrc file:</p>
+<pre class=" language-zsh"><code class="prism  language-zsh">plugins=(... sudo)
+</code></pre>
+<h3 id="usage-1">Usage</h3>
+<p>Say you have typed a long command and forgot to add <code>sudo</code> in front:</p>
+<pre class=" language-console"><code class="prism  language-console">$ apt-get install build-essential
+</code></pre>
+<p>By pressing the <kbd>esc</kbd> key twice, you will have the same command with <code>sudo</code> prefixed without typing:</p>
+<pre class=" language-console"><code class="prism  language-console">$ sudo apt-get install build-essential
+</code></pre>
+<p>The same happens for editing files with your default editor (defined in <code>$SUDO_EDITOR</code>, <code>$VISUAL</code> or <code>$EDITOR</code>, in that order):</p>
+<p>If the editor defined were <code>vim</code>:</p>
+<pre class=" language-console"><code class="prism  language-console">$ vim /etc/hosts
+</code></pre>
+<p>By pressing the <kbd>esc</kbd> key twice, you will have the same command with <code>sudo -e</code> instead of the editor, that would open that editor with root privileges:</p>
+<pre class=" language-console"><code class="prism  language-console">$ sudo -e /etc/hosts
+</code></pre>
+<h2 id="themes-plugin">Themes Plugin</h2>
+<p>This plugin allows you to change ZSH theme on the go.</p>
+<p>To use it, add <code>themes</code> to the plugins array in your zshrc file:</p>
+<pre><code>plugins=(... themes)
+</code></pre>
+<p>Themes can be found here: <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
+<h2 id="usage-2">Usage</h2>
+<p><code>theme &lt;theme_name&gt;</code> - Changes the ZSH theme to specified theme.</p>
+<p><code>theme</code> - Changes the ZSH theme to some random theme.</p>
+<p><code>lstheme</code> - Lists installed ZSH themes.</p>
+<h1 id="web-search-plugin">web-search plugin</h1>
+<p>This plugin adds aliases for searching with Google, Wiki, Bing, YouTube and other popular services.</p>
+<p>Open your <code>~/.zshrc</code> file and enable the <code>web-search</code> plugin:</p>
+<pre class=" language-zsh"><code class="prism  language-zsh">plugins=( ... web-search)
+</code></pre>
+<h2 id="usage-3">Usage</h2>
+<p>You can use the <code>web-search</code> plugin in these two forms:</p>
+<ul>
+<li><code>web_search &lt;context&gt; &lt;term&gt; [more terms if you want]</code></li>
+<li><code>&lt;context&gt; &lt;term&gt; [more terms if you want]</code></li>
+</ul>
+<p>For example, these two are equivalent:</p>
+<pre class=" language-zsh"><code class="prism  language-zsh">$ web_search google oh-my-zsh
+$ google oh-my-zsh
+</code></pre>
+<p>Available search contexts are:</p>
+
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bing</code></td>
+<td><code>https://www.bing.com/search?q=</code></td>
+</tr>
+<tr>
+<td><code>google</code></td>
+<td><code>https://www.google.com/search?q=</code></td>
+</tr>
+<tr>
+<td><code>yahoo</code></td>
+<td><code>https://search.yahoo.com/search?p=</code></td>
+</tr>
+<tr>
+<td><code>ddg</code> or <code>duckduckgo</code></td>
+<td><code>https://www.duckduckgo.com/?q=</code></td>
+</tr>
+<tr>
+<td><code>sp</code> or <code>startpage</code></td>
+<td><code>https://www.startpage.com/do/search?q=</code></td>
+</tr>
+<tr>
+<td><code>yandex</code></td>
+<td><code>https://yandex.ru/yandsearch?text=</code></td>
+</tr>
+<tr>
+<td><code>github</code></td>
+<td><code>https://github.com/search?q=</code></td>
+</tr>
+<tr>
+<td><code>baidu</code></td>
+<td><code>https://www.baidu.com/s?wd=</code></td>
+</tr>
+<tr>
+<td><code>ecosia</code></td>
+<td><code>https://www.ecosia.org/search?q=</code></td>
+</tr>
+<tr>
+<td><code>goodreads</code></td>
+<td><code>https://www.goodreads.com/search?q=</code></td>
+</tr>
+<tr>
+<td><code>qwant</code></td>
+<td><code>https://www.qwant.com/?q=</code></td>
+</tr>
+<tr>
+<td><code>givero</code></td>
+<td><code>https://www.givero.com/search?q=</code></td>
+</tr>
+<tr>
+<td><code>stackoverflow</code></td>
+<td><code>https://stackoverflow.com/search?q=</code></td>
+</tr>
+<tr>
+<td><code>wolframalpha</code></td>
+<td><code>https://wolframalpha.com/input?i=</code></td>
+</tr>
+<tr>
+<td><code>archive</code></td>
+<td><code>https://web.archive.org/web/*/</code></td>
+</tr>
+<tr>
+<td><code>scholar</code></td>
+<td><code>https://scholar.google.com/scholar?q=</code></td>
+</tr>
+</tbody>
+</table><p>Also there are aliases for bang-searching DuckDuckGo:</p>
+
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Bang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wiki</code></td>
+<td><code>!w</code></td>
+</tr>
+<tr>
+<td><code>news</code></td>
+<td><code>!n</code></td>
+</tr>
+<tr>
+<td><code>youtube</code></td>
+<td><code>!yt</code></td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td><code>!m</code></td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td><code>!i</code></td>
+</tr>
+<tr>
+<td><code>ducky</code></td>
+<td><code>!</code></td>
+</tr>
+</tbody>
+</table><h1 id="other-useful-plugins">Other useful plugins</h1>
+<p><strong>Fish-like autosuggestions for zsh</strong><br>
+<a href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions</a></p>
+<p><strong>Fish shell like syntax highlighting for Zsh.</strong><br>
+<a href="https://github.com/zsh-users/zsh-syntax-highlighting">https://github.com/zsh-users/zsh-syntax-highlighting</a></p>
+</div>
+</body>
+
+</html>
